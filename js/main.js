@@ -1,7 +1,9 @@
 window.addEventListener("load", () => {
    document.getElementById("test").addEventListener("click", () => {
     Array.from(document.getElementsByClassName("sidebar")).forEach((element) => {
-        element.classList.add("hidden")
+        let isHidden = element.classList.contains("hidden");
+        if (isHidden) return element.classList.remove("hidden");
+        element.classList.add("hidden");
     })
    })
 })

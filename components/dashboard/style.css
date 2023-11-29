@@ -1,0 +1,12 @@
+:root {
+    --sidebar-width: 35vh;
+    --primary-color: #d59bf6;
+    --border-radius: 2vh;
+}
+
+.dashboard {
+    background: rgba(251, 203, 255, 0.5);
+    height: 100%;
+    width: 100%;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}

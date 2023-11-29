@@ -1,12 +1,13 @@
 :root {
-    --sidebar-width: 25vh;
+    --sidebar-width: 35vh;
     --primary-color: #d59bf6;
     --border-radius: 2vh;
 }
+
 body {
-    background: rgba(2,0,36,1);
+    background: rgba(180, 184, 255, 0.5);
     background: linear-gradient(
-        90deg,
+        30deg,
         rgba(180, 184, 255, 0.5) 0%,
         rgba(140, 140, 255, 0.5) 35%,
         rgba(235, 211, 255, 0.5) 100%
@@ -15,6 +16,7 @@ body {
 
 .app {
     position: absolute;
+    display: flex;
     background-color: rgba(255,255,255,0.6);
     border-radius: var(--border-radius);
     width: 95%;
@@ -22,14 +24,34 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+}
+
+@keyframes show-sidebar {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--sidebar-width);
+    }
+}
+
+@keyframes hide-sidebar {
+    from {
+        width: var(--sidebar-width);
+    }
+    to {
+        width: 0;
+    }
 }
 
 .sidebar {
-    position: absolute;
-    background: rgba(0,0,0,0);
+    animation-name: show-sidebar;
+    animation-duration: 0.25s;
+    float: left;
+    background: rgba(255, 255, 255, 0.5);
     width: var(--sidebar-width);
     height: 100%;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
 .sidebar .top {
@@ -40,22 +62,8 @@ body {
     border-radius: var(--border-radius) 0 0 0;
 }
 
-@keyframes hide-sidebar {
-    from {background-color: red;}
-    to {background-color: yellow;}
-  }
-
-.sidebar .hidden {
+.hidden {
     animation-name: hide-sidebar;
-    animation-duration: 4s;
-}
-
-.dashboard {
-    position: absolute;
-    background: rgba(251, 203, 255, 0.5);
-    width: calc(100% - var(--sidebar-width));
-    height: 100%;
-    left: 100%;
-    transform: translateX(-100%);
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    animation-duration: 1s;
+    width: 0;
 }
