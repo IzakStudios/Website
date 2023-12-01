@@ -34,6 +34,7 @@ body {
     height: 100%;
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     transition-duration: 0.4s;
+    box-shadow: #0000007f 0.5vh 1vh 2vh 0.1em;
 }
 
 .sidebar .top {
@@ -71,25 +72,20 @@ body {
     justify-content: center;
     align-content: center;
     text-align: justify;
-    background: rgb(255,255,255);
-    background: linear-gradient(
-        0deg,
-
-        rgb(255,255,255) 0%,
-        rgb(0,0,0) 100%,
-    );
+    background: #ffffff;
     transition-duration: 0.05s;
 }
 
 .button:hover {
     transition-duration: 0.1s;
-    box-shadow: #7f7f7f 0px 0px 1vh;
-    scale: 1.01;
+    background: #f9f9f9;
+    box-shadow: #ffffff 0px 0px 1vh;
+    scale: 1.05;
 }
 
 .button:active {
-    transition-duration: 0.01s;
+    transition-duration: 0.02s;
     box-shadow: #ffffff 0px 0px 1vh;
     border-color: #000;
-    scale: 0.99;
+    scale: 0.95;
 }
