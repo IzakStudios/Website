@@ -8,19 +8,43 @@ body {
     background: rgba(180, 184, 255, 0.5);
     background: linear-gradient(
         30deg,
+
         rgba(180, 184, 255, 0.5) 0%,
         rgba(140, 140, 255, 0.5) 35%,
         rgba(235, 211, 255, 0.5) 100%
     );
 }
 
+@keyframes rotate-logo {
+    from {
+        rotate: -1.5deg;
+    }
+    to {
+        rotate: 1.5deg;
+    }
+}
+
+.logo {
+    position: relative;
+    left: 1.5%;
+    height: 7.5vh;
+    bottom: 8px;
+    aspect-ratio: 1/1;
+    rotate: -3deg;
+    animation-name: rotate-logo;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
 .app {
     position: absolute;
     display: flex;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.5);
     border-radius: var(--border-radius);
     width: 95%;
-    height: 95vh;
+    height: 85vh;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -35,14 +59,28 @@ body {
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     transition-duration: 0.4s;
     box-shadow: #0000007f 0.5vh 1vh 2vh 0.1em;
+    rotate: -1deg;
 }
 
 .sidebar .top {
     position: relative;
     background: var(--primary-color);
-    width: 100%;
+    width: 104%;
     height: 7vh;
-    border-radius: var(--border-radius) 0 0 0;
+    border-radius: var(--border-radius);
+    box-shadow: #0000007f 0px 0px 2vh 0.1em;
+    rotate: 3deg;
+}
+
+.sidebar .top .close {
+    position: relative;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 90%;
+    aspect-ratio: 1/2;
+    margin-left: 3px;
+    rotate: -2deg;
 }
 
 .hidden {
@@ -50,34 +88,77 @@ body {
 }
 
 .dashboard {
-    background: rgba(255, 252, 214, 0.5);
+    background: rgba(255, 252, 255, 0.85);
     height: 100%;
     width: 100%;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-radius: var(--border-radius);
     display: inline;
     align-items: center;
     justify-content: center;
+    rotate: -1deg;
+    z-index: -1;
+}
+
+.item-entry {
+    position: relative;
+    margin-top: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 30vh;
+    width: 40%;
+    min-width: 30vh;
+    max-width: 60vh;
+    border-radius: calc(var(--border-radius) / 2);
+    background: #010101df;
+    rotate: -1deg;
+    box-shadow: #002 0px 0px 2vh;
+}
+
+.item-entry .title {
+    position: absolute;
+    margin-top: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Poppins";
+    font-weight: 1000;
+    font-size: 3vh;
+    text-align: justify;
+    color: #fff;
+    rotate: 1deg;
+    text-shadow: #ffffff 0 0 1vh;
+}
+
+.item-entry .image {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    rotate: 3deg;
+    height: 60%;
+    box-shadow: #fff 0 0 1vh 0.5vh;
 }
 
 .button {
-    margin-top: 1vh;
-    position: relative;
     border-radius: calc(var(--border-radius) / 2);
-    width: 20vh;
-    left: 2%;
-    aspect-ratio: 12em;
-    display: inline-block;
     font-family: "Poppins";
     font-size: xx-large;
-    justify-content: center;
-    align-content: center;
     text-align: justify;
     background: #ffffff;
-    transition-duration: 0.05s;
+    transition-duration: 0.02s;
+}
+
+.discord {
+    position: absolute;
+    rotate: -6deg;
+    height: 90%;
+    top: 50%;
+    margin-left: 2.5%;
+    transform: translateY(-50%);
+    aspect-ratio: 1/1;
 }
 
 .button:hover {
-    transition-duration: 0.1s;
+    transition-duration: 0.02s;
     background: #f9f9f9;
     box-shadow: #ffffff 0px 0px 1vh;
     scale: 1.05;
@@ -85,7 +166,7 @@ body {
 
 .button:active {
     transition-duration: 0.02s;
-    box-shadow: #ffffff 0px 0px 1vh;
+    box-shadow: #0000007f 0px 0px 1vh;
     border-color: #000;
     scale: 0.95;
 }
